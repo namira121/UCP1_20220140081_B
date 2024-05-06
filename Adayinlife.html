@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyHome</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="Logo">Praktikum PDW</a>
+
+
+        <a href="index.html" id="nav-work" class="nav-link active">Home</a>
+        <div class="dropdown">
+            <a href="#" id="nav-tugas" class="nav-link">
+                About <i class="fas fa-caret-down"></i>
+            </a>
+            <div class="dropdown-content">
+                <a href="favourite.html">Favourite</a>
+                <a href="Adayinlife.html">A Day in My life</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#" id="nav-tugas" class="nav-link">
+                Others <i class="fas fa-caret-down"></i>
+            </a>
+            <div class="dropdown-content">
+                <a href="Hobby.html">Hobby</a>
+            </div>
+        </div>
+    </header>
+
+    <style>
+        /* Custom CSS for this page */
+        .greetings {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .carousel-container {
+            width: 120%;
+            margin: 20px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .card {
+            flex: auto;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        
+        .card img {
+            width: 250px; 
+            height: auto;
+            object-fit: cover;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgb(248, 241, 241); /* Warna ikon */
+        }
+
+        .prev {
+            left: 0px; /* Jarak dari kiri */
+        }
+
+        .next {
+            right: 0px; /* Jarak dari kanan */
+        }
+    </style>
+</head>
+
+    <section class="home" id="home">
+        <div class="container">
+            <div class="text">
+                <p class="greetings" id="greetings"></p>
+                <p id="current-time"></p>
+                <div class="carousel-container">
+                    <buttonC class="prev" onclick="prevSlide()">&#10094;</buttonC>
+                    <div class="carousel">
+                        <div class="card">
+                            <img src="WhatsApp Image 2024-05-07 at 3.48.59 AM.jpeg" alt="Image 1">
+                        </div>
+                        <div class="card">
+                            <img src="WhatsApp Image 2024-05-07 at 3.49.38 AM.jpeg" alt="Image 2">
+                        </div>
+                        <div class="card">
+                            <img src="WhatsApp Image 2024-05-07 at 3.50.08 AM.jpeg" alt="Image 3">
+                        </div>
+                    </div>
+                    <buttonC class="next" onclick="nextSlide()">&#10095;</buttonC>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // JavaScript for real-time greetings and current time
+        function updateGreetings() {
+            var today = new Date();
+            var currentHour = today.getHours();
+            var greetingsElement = document.getElementById('greetings');
+            var currentTimeElement = document.getElementById('current-time');
+            var greetings = '';
+
+            if (currentHour < 12) {
+                greetings = 'Hai Selamat Pagi! ☀️';
+            } else if (currentHour < 18) {
+                greetings = 'Hai Selamat Siang!🌤️';
+            } else if (currentHour < 20) {
+                greetings = 'Hai Selamat Sore!🌥️';
+            } else {
+                greetings = 'Hai Selamat Malam!🌑';
+            }
+
+            greetingsElement.innerText = greetings;
+            currentTimeElement.innerText = 'Waktu Sekarang: ' + today.toLocaleTimeString();
+        }
+
+        updateGreetings();
+        setInterval(updateGreetings, 1000);
+
+        // JavaScript for carousel
+        var slideIndex = 0;
+
+        function showSlide() {
+            var slides = document.querySelectorAll('.card');
+            if (slideIndex >= slides.length) {
+                slideIndex = 0;
+            } else if (slideIndex < 0) {
+                slideIndex = slides.length - 1;
+            }
+            for (var i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex].style.display = "block";
+        }
+
+        function nextSlide() {
+            slideIndex++;
+            showSlide();
+        }
+
+        function prevSlide() {
+            slideIndex--;
+            showSlide();
+        }
+
+        showSlide();
+    </script>
+
+    <footer class="footer">
+        <div class="container-footer">
+            <p>Contacts:</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/akun_instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://web.facebook.com/"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

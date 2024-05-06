@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyHome</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="Logo">Praktikum PDW</a>
+
+
+        <a href="index.html" id="nav-work" class="nav-link active">Home</a>
+        <div class="dropdown">
+            <a href="#" id="nav-tugas" class="nav-link">
+                About <i class="fas fa-caret-down"></i>
+            </a>
+            <div class="dropdown-content">
+                <a href="favourite.html">Favourite</a>
+                <a href="Adayinlife.html">A Day in My Life</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#" id="nav-tugas" class="nav-link">
+                Others <i class="fas fa-caret-down"></i>
+            </a>
+            <div class="dropdown-content">
+                <a href="Hobby.html">Hobby</a>
+            </div>
+        </div>
+    </header>
+
+    <style>
+        h1 {
+            font-size: 40px;
+            padding-top: 100px;
+            text-align: center;
+            color: aliceblue;
+        }
+
+        .circle-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+
+        .circle {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background-color:rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: white;
+            margin: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .circle:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+    <h1>These are my hobbies</h1>
+    <script>
+        window.onload = function () {
+            var circles = document.getElementsByClassName('circle');
+
+            for (var i = 0; i < circles.length; i++) {
+                circles[i].addEventListener('click', function () {
+                    this.classList.add('animate');
+                    var circle = this;
+                    setTimeout(function () {
+                        circle.classList.remove('animate');
+                    }, 1000);
+                });
+            }
+        };
+    </script>
+    <div class="circle-container">
+        <div class="circle">
+            <p>Membaca</p>
+        </div>
+        <div class="circle">
+            <p>Traveling</p>
+        </div>
+        <div class="circle">
+            <p>Jajan</p>
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <div class="container-footer">
+            <p>Contacts:</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/akun_instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://web.facebook.com/"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
